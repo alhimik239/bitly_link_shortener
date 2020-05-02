@@ -7,7 +7,9 @@ Python3 should be already installed. Then use `pip` (or `pip3`, if there is a co
 
 `pip install -r requirements.txt`
 
+
 ##How to use
+
 
 Type full link (http://...) to shorten it.
 ```
