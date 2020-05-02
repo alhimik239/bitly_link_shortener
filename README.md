@@ -10,6 +10,9 @@ Python3 should be already installed. Then use `pip` (or `pip3`, if there is a co
 
 ##How to use
 
+Don't forget to create .env file with string like
+
+`BITLY_TOKEN=<YOUR BITLY API TOKEN>`
 
 Type full link (http://...) to shorten it.
 ```
