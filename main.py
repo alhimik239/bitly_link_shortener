@@ -4,26 +4,26 @@ import argparse
 import sys
 from dotenv import load_dotenv
 
-def createParser():
+def create_parser():
   parser = argparse.ArgumentParser()
   parser.add_argument('link')
   return parser
 
-def shorten_link(token_bitly, long_link):
+def shorten_link(header_bitly, long_link):
   url = 'https://api-ssl.bitly.com/v4/bitlinks'
-  response = requests.post(url, headers = token_bitly, json = {'long_url': long_link})
+  response = requests.post(url, headers = header_bitly, json = {'long_url': long_link})
   return response.json()['id']
 
-def count_clicks(token_bitly, short_link):
+def count_clicks(header_bitly, short_link):
   url = 'https://api-ssl.bitly.com/v4/bitlinks/{}/clicks/summary'.format(short_link)
-  response = requests.get(url, headers = token_bitly, params = {'units': -1})
+  response = requests.get(url, headers = header_bitly, params = {'units': -1})
   return response.json()['total_clicks']
 
-if __name__ == "__main__":
+def main():
   load_dotenv()
   header_bitly = {'Authorization': 'Bearer {}'.format(os.getenv('BITLY_TOKEN'))}
 
-  parser = createParser()
+  parser = create_parser()
   namespace = parser.parse_args(sys.argv[1:])
   link = namespace.link
 
@@ -39,4 +39,7 @@ if __name__ == "__main__":
     except requests.exceptions.HTTPError:
       print('Похоже, Вы ошиблись в формате ссылки.')
     print('Количество переходов по данной ссылке: ' + str(click_counts))
+
+if __name__ == "__main__":
+  main()
 
