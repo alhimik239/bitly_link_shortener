@@ -3,8 +3,6 @@ import os
 import argparse
 import sys
 from dotenv import load_dotenv
-load_dotenv()
-
 
 def createParser():
   parser = argparse.ArgumentParser()
@@ -22,6 +20,7 @@ def count_clicks(token_bitly, short_link):
   return response.json()['total_clicks']
 
 if __name__ == "__main__":
+  load_dotenv()
   header_bitly = {'Authorization': 'Bearer {}'.format(os.getenv('BITLY_TOKEN'))}
 
   parser = createParser()
