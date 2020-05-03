@@ -28,4 +28,4 @@ python main.py bit.ly/3bnGgQy
 ```
 ## Project Goals
 
-The code is written for educational purposes on online-course for web-developers [dvmn.org](http://dvmn.org){:target="\_blank"}.
+The code is written for educational purposes on online-course for web-developers [dvmn.org](http://dvmn.org).
